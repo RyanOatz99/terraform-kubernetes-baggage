@@ -52,7 +52,7 @@ resource "kubernetes_stateful_set" "baggage" {
             secret_name         = kubernetes_secret.config.metadata[0].name
           }
         }
-      
+
         image_pull_secrets {
           name = kubernetes_secret.docker_secret.metadata[0].name
         }

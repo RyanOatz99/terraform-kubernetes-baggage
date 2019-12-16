@@ -9,6 +9,7 @@ resource "kubernetes_ingress" "baggage_ingress" {
     }
   }
 
+  depends_on = [kubernetes_stateful_set.baggage]
   spec {
     backend {
       service_name = kubernetes_service.baggage.metadata.0.name
