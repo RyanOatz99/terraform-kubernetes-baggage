@@ -64,7 +64,7 @@ data "terraform_remote_state" "dns" {
 
   config = {
     bucket = "livelink-terraform"
-    key = "infrastructure/dns/${var.client_name}.tfstate"
+    key    = "infrastructure/dns/${var.client_name}.tfstate"
     region = "eu-west-2"
   }
 }
@@ -83,7 +83,7 @@ data "terraform_remote_state" "docker_config" {
 
   config = {
     bucket = "livelink-terraform"
-    key = "infrastructure/dockerhub.tfstate"
+    key    = "infrastructure/dockerhub.tfstate"
     region = "eu-west-2"
   }
 }

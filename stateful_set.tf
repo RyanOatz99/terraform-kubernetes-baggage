@@ -3,7 +3,7 @@ resource "kubernetes_stateful_set" "baggage" {
     name = local.instance_name
 
     labels = {
-      "app.kubernetes.io/name" = local.instance_name
+      "app.kubernetes.io/name"    = local.instance_name
       "app.kubernetes.io/part-of" = "baggage"
     }
 
@@ -11,12 +11,12 @@ resource "kubernetes_stateful_set" "baggage" {
   }
 
   spec {
-    replicas = var.replicas
+    replicas               = var.replicas
     revision_history_limit = 5
 
     selector {
       match_labels = {
-        "app.kubernetes.io/name" = local.instance_name
+        "app.kubernetes.io/name"    = local.instance_name
         "app.kubernetes.io/part-of" = "baggage"
       }
     }
@@ -30,14 +30,14 @@ resource "kubernetes_stateful_set" "baggage" {
     template {
       metadata {
         labels = {
-          "app.kubernetes.io/name" = local.instance_name
+          "app.kubernetes.io/name"    = local.instance_name
           "app.kubernetes.io/part-of" = "baggage"
         }
       }
 
       spec {
         security_context {
-          fs_group = var.fs_group
+          fs_group    = var.fs_group
           run_as_user = var.run_as
         }
         image_pull_secrets {
@@ -49,7 +49,7 @@ resource "kubernetes_stateful_set" "baggage" {
 
           secret {
             default_mode = "0555"
-            secret_name         = kubernetes_secret.config.metadata[0].name
+            secret_name  = kubernetes_secret.config.metadata[0].name
           }
         }
 
@@ -86,7 +86,7 @@ resource "kubernetes_stateful_set" "baggage" {
           }
 
           env {
-            name = "MEMCACHE_SERVER_PODS"
+            name  = "MEMCACHE_SERVER_PODS"
             value = join(",", module.memcache.servers)
           }
         }

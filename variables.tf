@@ -38,7 +38,7 @@ variable "workers" {
 
 variable "memcache_replicas" {
   description = "Number of memcache pods to spin out"
-  default = 3
+  default     = 3
 }
 
 variable "memcache_resource_requests" {
@@ -54,7 +54,7 @@ resource_requests = {
 EOF
 
   default = {
-    cpu = "50m"
+    cpu    = "50m"
     memory = "64Mi"
   }
 }
@@ -72,46 +72,46 @@ resource_requests = {
 EOF
 
   default = {
-    cpu = "150m"
+    cpu    = "150m"
     memory = "256Mi"
   }
 }
 
 variable "instance" {
   description = "Name for my baggage"
-  default = "default"
+  default     = "default"
 }
 variable "namespace" {
   description = "default namespace for pods"
-  default = "default"
+  default     = "default"
 }
 
 variable "run_as" {
   description = "uid to run as"
-  default = 65534
+  default     = 65534
 }
 
 variable "fs_group" {
   description = "FS Group for Security context"
-  default = 65534
+  default     = 65534
 }
 
 variable "authenticator_version" {
   description = "Increment to rotate keys"
-  default = 1
+  default     = 1
 }
 
 variable "set_name" {
   description = "local name of baggage instance sets"
-  default = "baggage"
+  default     = "baggage"
 }
 
 variable "replicas" {
   description = "Number of Baggage Pods to spin out in stateful set"
-  default = 3
+  default     = 3
 }
 
 variable "manage_namespace" {
-  default = false
+  default     = false
   description = "Whether the namesoace has to be created by this run or if it is created by another blob of terraform"
 }

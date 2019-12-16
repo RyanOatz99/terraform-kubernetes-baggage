@@ -8,9 +8,9 @@ resource "random_string" "authenticator_key" {
 }
 
 resource "random_string" "api_key" {
-  length = 10
+  length  = 10
   special = false
-  upper = false
+  upper   = false
 
   keepers = {
     version = var.authenticator_version
@@ -20,7 +20,7 @@ resource "random_string" "api_key" {
 resource "kubernetes_secret" "config" {
 
   metadata {
-    name = local.instance_name
+    name      = local.instance_name
     namespace = local.namespace
   }
 
@@ -36,7 +36,7 @@ data "null_data_source" "config" {
   inputs = {
     authenticator_txt = "${random_string.api_key.result}:${random_string.authenticator_key.result}:read,write"
 
-    puma_rb           = <<EOF
+    puma_rb = <<EOF
 threads ${var.min_threads},${var.max_threads}
 workers ${var.workers}
 preload_app!

@@ -1,11 +1,11 @@
 resource "kubernetes_ingress" "baggage_ingress" {
   metadata {
-    name = local.instance_name
+    name      = local.instance_name
     namespace = local.namespace
 
     annotations = {
       "kubernetes.io/ingress.global-static-ip-name" = google_compute_global_address.baggage_ingress.name
-      "ingress.gcp.kubernetes.io/pre-shared-cert" = google_compute_managed_ssl_certificate.ssl.name
+      "ingress.gcp.kubernetes.io/pre-shared-cert"   = google_compute_managed_ssl_certificate.ssl.name
     }
   }
 
