@@ -1,6 +1,6 @@
 resource "kubernetes_ingress" "baggage_ingress" {
   metadata {
-    name = var.set_name
+    name = local.instance_name
     namespace = kubernetes_namespace.namespace.metadata[0].name
 
     annotations = {

@@ -3,6 +3,6 @@ resource "dns_a_record_set" "baggage_ingress" {
   name = "baggage-${var.environment}-wk"
 
   addresses = [
-    kubernetes_ingress.baggage_ingress.load_balancer_ingress.0.ip
+    google_compute_global_address.baggage_ingress.address
   ]
 }
