@@ -110,7 +110,3 @@ variable "replicas" {
   description = "Number of Baggage Pods to spin out in stateful set"
   default = 3
 }
-
-variable "docker_config" {
-  description = "Docker Authentication JSON"
-}

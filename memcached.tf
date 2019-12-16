@@ -1,6 +1,6 @@
 module "memcache" {
   source    = "essjayhch/memcache/kubernetes"
-  version   = "0.2.1"
+  version   = "0.3.0"
   replicas  = var.memcache_replicas
   namespace = kubernetes_namespace.namespace.metadata[0].name
   resource_limits = var.memcache_resource_limits

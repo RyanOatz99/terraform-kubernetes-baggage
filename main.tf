@@ -54,7 +54,7 @@ data "terraform_remote_state" "storage" {
 
   config = {
     bucket = "livelink-terraform"
-    key    = "infrastructure/storage/${var.cloud_provider}/${var.environment}/${var.client_name}.tfstate"
+    key    = "infrastructure/storage/${var.cloud_provider}/${var.environment}/${var.instance}/${var.client_name}.tfstate"
     region = "eu-west-2"
   }
 }
