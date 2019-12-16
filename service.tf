@@ -1,7 +1,7 @@
 resource "kubernetes_service" "baggage" {
   metadata {
     name = local.instance_name
-    namespace = var.namespace
+    namespace = local.namespace
 
     labels = {
       "app.kubernetes.io/name" = local.instance_name

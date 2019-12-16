@@ -7,7 +7,7 @@ resource "kubernetes_stateful_set" "baggage" {
       "app.kubernetes.io/part-of" = "baggage"
     }
 
-    namespace = var.namespace
+    namespace = local.namespace
   }
 
   spec {
@@ -54,7 +54,7 @@ resource "kubernetes_stateful_set" "baggage" {
         }
 
         image_pull_secrets {
-          name = kubernetes_secret.docker_secret.metadata[0].name
+          name = local.docker_secret
         }
 
         container {

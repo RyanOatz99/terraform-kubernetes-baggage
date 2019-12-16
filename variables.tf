@@ -83,7 +83,7 @@ variable "instance" {
 }
 variable "namespace" {
   description = "default namespace for pods"
-  default = "bg-livelink-test"
+  default = "default"
 }
 
 variable "run_as" {
@@ -109,4 +109,9 @@ variable "set_name" {
 variable "replicas" {
   description = "Number of Baggage Pods to spin out in stateful set"
   default = 3
+}
+
+variable "manage_namespace" {
+  default = false
+  description = "Whether the namesoace has to be created by this run or if it is created by another blob of terraform"
 }

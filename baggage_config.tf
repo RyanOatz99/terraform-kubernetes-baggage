@@ -20,8 +20,8 @@ resource "random_string" "api_key" {
 resource "kubernetes_secret" "config" {
 
   metadata {
-    name = var.set_name
-    namespace = var.namespace
+    name = local.instance_name
+    namespace = local.namespace
   }
 
   type = "Opaque"

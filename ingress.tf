@@ -1,7 +1,7 @@
 resource "kubernetes_ingress" "baggage_ingress" {
   metadata {
     name = local.instance_name
-    namespace = kubernetes_namespace.namespace.metadata[0].name
+    namespace = local.namespace
 
     annotations = {
       "kubernetes.io/ingress.global-static-ip-name" = google_compute_global_address.baggage_ingress.name
