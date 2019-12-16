@@ -77,3 +77,13 @@ provider "dns" {
     key_secret    = data.terraform_remote_state.dns.outputs.key_secret
   }
 }
+
+data "terraform_remote_state" "docker_config" {
+  backend = "s3"
+
+  config = {
+    bucket = "livelink-terraform"
+    key = "infrastructure/dockerhub.tfstate"
+    region = "eu-west-2"
+  }
+}

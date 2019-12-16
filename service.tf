@@ -4,14 +4,14 @@ resource "kubernetes_service" "baggage" {
     namespace = var.namespace
 
     labels = {
-      "app.kubernetes.io/name" = var.set_name
+      "app.kubernetes.io/name" = var.instance
       "app.kubernetes.io/part-of" = "baggage"
     }
   }
 
   spec {
     selector = {
-      "app.kubernetes.io/name" = var.set_name
+      "app.kubernetes.io/name" = var.instance
       "app.kubernetes.io/part-of" = "baggage"
     }
 

@@ -77,6 +77,10 @@ EOF
   }
 }
 
+variable "instance" {
+  description = "Name for my baggage"
+  default = "default"
+}
 variable "namespace" {
   description = "default namespace for pods"
   default = "bg-livelink-test"

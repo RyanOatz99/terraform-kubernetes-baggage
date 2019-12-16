@@ -5,7 +5,7 @@ resource "kubernetes_secret" "docker_secret" {
   }
 
   data = {
-    ".dockerconfigjson" = var.docker_config
+    ".dockerconfigjson" = data.terraform_remote_state.docker_config.outputs.docker_config
   }
 
   type = "kubernetes.io/dockerconfigjson"
