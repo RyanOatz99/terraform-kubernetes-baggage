@@ -1,9 +1,9 @@
 resource "kubernetes_stateful_set" "baggage" {
   metadata {
-    name = var.set_name
+    name = local.instance_name
 
     labels = {
-      "app.kubernetes.io/name" = var.set_name
+      "app.kubernetes.io/name" = local.instance_name
       "app.kubernetes.io/part-of" = "baggage"
     }
 
@@ -16,7 +16,7 @@ resource "kubernetes_stateful_set" "baggage" {
 
     selector {
       match_labels = {
-        "app.kubernetes.io/name" = var.set_name
+        "app.kubernetes.io/name" = local.instance_name
         "app.kubernetes.io/part-of" = "baggage"
       }
     }
@@ -30,7 +30,7 @@ resource "kubernetes_stateful_set" "baggage" {
     template {
       metadata {
         labels = {
-          "app.kubernetes.io/name" = var.set_name
+          "app.kubernetes.io/name" = local.instance_name
           "app.kubernetes.io/part-of" = "baggage"
         }
       }
