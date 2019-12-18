@@ -1,5 +1,5 @@
 resource "google_compute_managed_ssl_certificate" "ssl" {
-  provider = "google-beta"
+  provider = google-beta
 
   name = "baggage-${var.environment}-${var.client_name}-wk-livelink-io-ssl"
 

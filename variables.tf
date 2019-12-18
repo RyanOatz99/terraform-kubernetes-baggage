@@ -42,7 +42,7 @@ variable "memcache_replicas" {
 }
 
 variable "memcache_resource_requests" {
-  type = "map"
+  type = map
 
   description = <<EOF
 Resource Requests
@@ -60,7 +60,7 @@ EOF
 }
 
 variable "memcache_resource_limits" {
-  type = "map"
+  type = map
 
   description = <<EOF
 Memcache Resource Limits
