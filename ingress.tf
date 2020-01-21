@@ -17,7 +17,7 @@ resource "kubernetes_ingress" "baggage_ingress" {
     }
 
     rule {
-      host = "baggage-${var.environment}-wk.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
+      host = "baggage-${var.environment}-${var.namespace}-${var.instance}.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
       http {
         path {
           path = "/${var.environment}.${var.client_name}.prints/*"
@@ -31,7 +31,7 @@ resource "kubernetes_ingress" "baggage_ingress" {
     }
 
     rule {
-      host = "baggage-${var.environment}-wk.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
+      host = "baggage-${var.environment}-${var.namespace}-${var.instance}.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
       http {
         path {
           path = "/${var.environment}.${var.client_name}.prints-cache/*"
@@ -44,7 +44,7 @@ resource "kubernetes_ingress" "baggage_ingress" {
       }
     }
     rule {
-      host = "baggage-${var.environment}-wk.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
+      host = "baggage-${var.environment}-${var.namespace}-${var.instance}.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
       http {
         path {
           path = "/${var.environment}.${var.client_name}.albums/*"

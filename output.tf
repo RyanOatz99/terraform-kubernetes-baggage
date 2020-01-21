@@ -14,3 +14,7 @@ output "api_key" {
 output "dns" {
   value = "${dns_a_record_set.baggage_ingress.name}.${var.client_name}.${data.terraform_remote_state.dns.outputs.domain}"
 }
+
+output "instance_name" {
+  value = local.instance_name
+}

@@ -115,3 +115,9 @@ variable "manage_namespace" {
   default     = false
   description = "Whether the namesoace has to be created by this run or if it is created by another blob of terraform"
 }
+
+variable "dice" {
+  default = {
+    enabled = false
+  }
+}
